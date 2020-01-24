@@ -1,4 +1,5 @@
 import { Environment } from './environment.interface';
+import { InjectionToken } from '@angular/core';
 
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
@@ -8,6 +9,13 @@ export const environment: Environment = {
   production: false,
   apiUrl: 'http://development.com/api/',
 };
+
+/**
+ * Token for provide environment
+ */
+export const ENV_TOKEN = new InjectionToken<Environment>(
+  'app.environment.token'
+);
 
 /*
  * For easier debugging in development mode, you can import the following file

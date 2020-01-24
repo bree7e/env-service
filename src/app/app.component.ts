@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { environment } from '../environments/environment';
+import { Component, Inject } from '@angular/core';
+
+import { ENV_TOKEN } from '../environments/environment';
+import { Environment } from 'src/environments/environment.interface';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,7 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  url = environment.apiUrl;
+  readonly url = this.environment.apiUrl;
+
+  constructor(@Inject(ENV_TOKEN) private environment: Environment) {}
 }
